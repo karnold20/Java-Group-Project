@@ -12,7 +12,7 @@
    <children>
       <Label fx:id="Category_label" layoutX="144.0" layoutY="79.0" prefHeight="37.0" prefWidth="169.0" text="        Category goes here " />
       <Line endX="-0.671234130859375" endY="149.641845703125" layoutX="449.0" layoutY="227.0" startX="-0.671234130859375" startY="-125.62429809570312" stroke="#654321" strokeWidth="5.0" />
-      <TextField layoutX="126.0" layoutY="322.0" text="text goes here..." />
+      <TextField fx:id="myGuess" layoutX="126.0" layoutY="322.0" text="text goes here..." />
       <Line endX="100.0" layoutX="589.0" layoutY="101.0" startX="-140.17123413085938" startY="-0.12429046630859375" stroke="#654321" strokeWidth="4.0" />
       <Line endX="8.7071533203125" endY="9.213531494140625" layoutX="681.0" layoutY="127.0" startX="8.7071533203125" startY="-26.831398010253906" />
       <Line endX="100.0" layoutX="509.0" layoutY="377.0" startX="-100.0" stroke="#654321" strokeWidth="8.0" />
