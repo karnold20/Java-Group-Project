@@ -26,6 +26,6 @@
       <Button layoutX="220.0" layoutY="381.0" mnemonicParsing="false" text="Button" />
       <Line endX="578.9806518554688" layoutX="286.0" layoutY="421.0" startX="-241.3124542236328" />
       <Label layoutX="118.0" layoutY="166.0" prefHeight="111.0" prefWidth="252.0" text="wrong letters  selected go here " />
-      <Label layoutX="339.0" layoutY="446.0" prefHeight="33.0" prefWidth="212.0" text="the word goes here " />
+      <Label fx:id="wordState" layoutX="339.0" layoutY="446.0" prefHeight="33.0" prefWidth="212.0" text="the word goes here " />
    </children>
 </Pane>
