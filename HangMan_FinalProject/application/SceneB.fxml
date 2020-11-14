@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controlB">
+   <children>
+      <Label fx:id="Category_label" layoutX="144.0" layoutY="79.0" prefHeight="37.0" prefWidth="169.0" text="        Category goes here " />
+      <Line endX="-0.671234130859375" endY="149.641845703125" layoutX="449.0" layoutY="227.0" startX="-0.671234130859375" startY="-125.62429809570312" stroke="#654321" strokeWidth="5.0" />
+      <TextField fx:id="AnswerBox" layoutX="126.0" layoutY="322.0" text="text goes here..." />
+      <Line endX="100.0" layoutX="589.0" layoutY="101.0" startX="-140.17123413085938" startY="-0.12429046630859375" stroke="#654321" strokeWidth="4.0" />
+      <Line endX="8.7071533203125" endY="9.213531494140625" layoutX="681.0" layoutY="127.0" startX="8.7071533203125" startY="-26.831398010253906" />
+      <Line endX="100.0" layoutX="509.0" layoutY="377.0" startX="-100.0" stroke="#654321" strokeWidth="8.0" />
+      <Circle fx:id="headShape" fill="#f8fafc" layoutX="690.0" layoutY="159.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+      <Line fx:id="spine" endX="1.0" endY="-38.00001525878906" layoutX="689.0" layoutY="222.0" startX="-0.7928466796875" startY="50.263153076171875" />
+      <Line fx:id="leftArmLine" endX="73.726806640625" endY="-11.969940185546875" layoutX="613.0" layoutY="217.0" startX="22.1334228515625" startY="19.6856689453125" />
+      <Line fx:id="rightArmLine" endX="-25.39447021484375" endY="14.309341430664062" layoutX="761.0" layoutY="221.0" startX="-70.29290771484375" startY="-15.969940185546875" />
+      <Line fx:id="leftLegLine" endX="98.5" endY="-38.02972412109375" layoutX="589.0" layoutY="311.0" startX="66.77838134765625" startY="11.0181884765625" />
+      <Line fx:id="rightLegLine" endX="-11.40509033203125" endY="8.512847900390625" layoutX="736.0" layoutY="308.0" startX="-47.5" startY="-35.02972412109375" />
+      <Button fx:id="guessBttn" layoutX="139.0" layoutY="381.0" mnemonicParsing="false" text="Guess" />
+      <Button fx:id="guessFullWord" layoutX="220.0" layoutY="381.0" mnemonicParsing="false" text="Button" />
+      <Line endX="578.9806518554688" layoutX="286.0" layoutY="421.0" startX="-241.3124542236328" />
+      <Label fx:id="missedLetters" layoutX="118.0" layoutY="166.0" prefHeight="111.0" prefWidth="252.0" text="wrong letters  selected go here " />
+      <Label fx:id="wordDashes" layoutX="339.0" layoutY="446.0" prefHeight="33.0" prefWidth="212.0" text="the word goes here " />
+   </children>
+</Pane>

@@ -15,15 +15,22 @@ public class Main extends Application {
 	public void start(Stage primaryStage) throws Exception {
 
 	   // load fxml file and display it in the stage:
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("SceneB.fxml"));
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("SceneA.fxml"));
+		
 		Parent root = loader.load();
-	    Scene scene = new Scene(root);
+		Scene sceneA = new Scene(root);
+		controlA control = loader.getController(); // loads the controller for SceneA
+		
+		control.setPrevStage(primaryStage);
+		
+
 	    primaryStage.setResizable(false);
 	    primaryStage.setWidth(APP_W);
 	    primaryStage.setHeight(APP_H);
 	    primaryStage.setTitle("Hangman_Game");
-	    primaryStage.setScene(scene);
+	    primaryStage.setScene(sceneA);
 	    primaryStage.show();
+
 	   
 	 }
 	
