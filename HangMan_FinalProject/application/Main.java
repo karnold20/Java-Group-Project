@@ -15,7 +15,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) throws Exception {
 
 	   // load fxml file and display it in the stage:
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("mainUI.fxml"));
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("SceneB.fxml"));
 		Parent root = loader.load();
 	    Scene scene = new Scene(root);
 	    primaryStage.setResizable(false);
