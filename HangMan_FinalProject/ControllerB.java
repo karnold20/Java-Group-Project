@@ -6,9 +6,10 @@ public class Controller {
   @FXML
   private TextField myGuess;
   
-  StringProperty wordStateProperty = new StringProperty();
-  StringProperty secretWordProperty = new StringProperty();
-  StringProperty myGuessProperty = new StringProperty();
+  private StringProperty wordStateProperty = new StringProperty();
+  private StringProperty secretWordProperty = new StringProperty();
+  private StringProperty myGuessProperty = new StringProperty();
+  myGuessProperty.bind(myGuess);
   
   public void onButtonClicked(){
     if(guessIsRight(myGuessProperty,secretWordProperty,wordStateProperty)){
@@ -19,5 +20,6 @@ public class Controller {
     }
   }
   public bool guessIsRight(StringProperty myGuess,StringProperty secret,StringProperty word){
+    
   }
 }//end of Controller
