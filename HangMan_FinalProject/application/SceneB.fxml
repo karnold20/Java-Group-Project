@@ -21,8 +21,8 @@
       <Line fx:id="rightArmLine" endX="-25.39447021484375" endY="14.309341430664062" layoutX="761.0" layoutY="221.0" startX="-70.29290771484375" startY="-15.969940185546875" />
       <Line fx:id="leftLegLine" endX="98.5" endY="-38.02972412109375" layoutX="589.0" layoutY="311.0" startX="66.77838134765625" startY="11.0181884765625" />
       <Line fx:id="rightLegLine" endX="-11.40509033203125" endY="8.512847900390625" layoutX="736.0" layoutY="308.0" startX="-47.5" startY="-35.02972412109375" />
-      <Button fx:id="guessBttn" layoutX="139.0" layoutY="381.0" mnemonicParsing="false" text="Guess" />
-      <Button fx:id="guessFullWord" layoutX="220.0" layoutY="381.0" mnemonicParsing="false" text="Button" />
+      <Button fx:id="guessBttn" layoutX="139.0" layoutY="381.0" mnemonicParsing="false" onAction="#onButtonClicked" text="Guess" />
+      <Button fx:id="guessFullWord" layoutX="220.0" layoutY="381.0" mnemonicParsing="false" onAction="#GuessFullWordEvent" text="Guess Entire Word" />
       <Line endX="578.9806518554688" layoutX="286.0" layoutY="421.0" startX="-241.3124542236328" />
       <Label fx:id="missedLetters" layoutX="118.0" layoutY="166.0" prefHeight="111.0" prefWidth="252.0" text="wrong letters  selected go here " />
       <Label fx:id="wordDashes" layoutX="339.0" layoutY="446.0" prefHeight="33.0" prefWidth="212.0" text="the word goes here " />
