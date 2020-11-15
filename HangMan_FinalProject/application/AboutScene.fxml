@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="300.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="115.0" fitWidth="114.0" layoutX="22.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@hangman-game.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="171.0" layoutY="50.0" text="Developers">
+         <font>
+            <Font name="Georgia" size="13.0" />
+         </font>
+      </Label>
+      <Line endX="76.12564086914062" endY="-7.62939453125E-6" layoutX="197.0" layoutY="68.0" startX="-50.59834289550781" />
+      <Label layoutX="135.0" layoutY="74.0" prefHeight="10.0" prefWidth="44.0" text="Karmen">
+         <font>
+            <Font name="System Font" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="185.0" layoutY="74.0" text="Katherine" />
+      <Label layoutX="223.0" layoutY="94.0" text="Lorenzo" />
+      <Label layoutX="153.0" layoutY="94.0" text="Munayfah" />
+      <Label layoutX="245.0" layoutY="75.0" text="Rukia" />
+      <Label layoutX="172.0" layoutY="33.0" text="HANGMAN" textFill="#4959ee" />
+      <ImageView fitHeight="129.0" fitWidth="122.0" layoutX="14.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/hangman-game.png" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>

@@ -37,6 +37,8 @@ public class controlA {
 		choicebox.getItems().add("fruit");
 	    choicebox.getItems().add("movies");
 	    choicebox.getItems().add("animals");
+	    choicebox.getItems().add("country");
+	    choicebox.getItems().add("restaurants");
 		
 	}
 	
@@ -48,6 +50,46 @@ public void setPrevStage(Stage stage) {
 	}
 	
 	
+
+// about page button should open another window
+public void Menu_AboutEvent() {
+	
+	
+
+	try {
+	Stage stage = new Stage();
+	FXMLLoader loader3 = new FXMLLoader(getClass().getResource("AboutScene.fxml"));
+	
+	
+	Parent root3 = loader3.load();
+	Scene sceneC = new Scene(root3);
+	stage.setResizable(false);
+	stage.setTitle("About Hangman");
+	stage.setScene(sceneC);
+	
+	
+	//controlB control = loader3.getController();
+	
+	
+
+	//prevStage.close(); // close Scene A
+	
+	stage.show();
+	
+	
+	}catch (IOException io) {
+		io.printStackTrace();
+	}
+
+	
+	
+	
+	
+	
+}
+
+
+
 
 	
 	// button to select item from choice box 

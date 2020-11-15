@@ -161,13 +161,15 @@ public class controlB {
 	
 	
 	// button event for guessing the entire word 
-	public void GuessFullWordEvent(String text) {
+	public void GuessFullWordEvent() {
 		
 		
 		
 		
 	}
 	
+	
+	public void onButtonClicked(){}
 
 	
 	
