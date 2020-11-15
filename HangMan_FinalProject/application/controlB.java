@@ -174,44 +174,52 @@ public class controlB {
 	/*
 	
 	public void onButtonClicked(){
-		if(guessIsRight(mysteryWord,AnswerBox.toString())){
-			wordDashes = updateWordState(mysteryWord,AnswerBox.toString(),wordDashes);
+		String newWord;
+		String guess = AnswerBox.getText(); //convert char obtained from TextField to String
+		char myGuess = guess.charAt(0); //convert String to char
+		if(guessIsRight(mysteryWord,myGuess)){ //test to see if letter is in secretWord
+			newWord = updateWordState(); //change _ to letter if player made correct guess
+			wordDashes.setText(newWord); //convert String to label
 		}
 		else{
-			//update hangman picture
+			//update hangman picture  
+			
+			//make part of hangmanPicture visible if player made incorrect guess
 			
 			numGuesses--;
 			makeVisible(numGuesses);
-			
-		
 		}
 	}
-	
 	//checks if letter is in secret word
-	public boolean guessIsRight(String secretWord,String guess){
+	public boolean guessIsRight(String secretWord, char guess){
 		for (int i=0; i<secretWord.length(); i++){
-			String secretLetter = secretWord.charAt(i);
-			if (secretLetter.equals(guess)){
+			char secretLetter = secretWord.charAt(i);
+			if (secretLetter == guess){
 				return true;
 			}
 		}
 		return false;
 	}
 	
-	//updates word state
-	public void updateWordState(String secretWord,String word,String guess){
-		for (int i=0; i<wordDashes.toString().length(); i++){
-			String secretLetter = secretWord.charAt(i);
-			if (secretLetter.equals(guess)){
-				//set letter at X index
-			}
-		}	
-	}
 	
+	//updates word state
+	public String updateWordState(String secretWord,String wordDashes,char guess){
+		String word = wordDashes.toString();     //convert Label to String
+		  char [] myword = word.toCharArray();        //convert String to charArray
+		for (int i=0; i<secretWord.length(); i++){
+			
+			char secretLetter = secretWord.charAt(i);
+			
+			if (secretLetter == guess){
+				myword[i] = secretLetter;      //update letters
+			}
+		}
+		word = String.valueOf(myword); //convert to String
+		return word;	
+	}
+
 	
 	*/
-	
-	
 	
 	
 
