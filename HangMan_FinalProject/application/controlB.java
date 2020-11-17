@@ -128,21 +128,8 @@ public class controlB {
 		{
 			
 			rightLegLine.setVisible(true);
+			GameOver();
 		
-		
-			// game is over disable the textfield and two buttons
-			// and output that user lost game in the textfield
-			
-			guessBttn.setVisible(false);
-			
-			guessFullWord.setVisible(false);
-			
-			
-			AnswerBox.setDisable(true); // 
-			
-			AnswerBox.setText("You lost");	
-			
-			
 		}
 		
 		
@@ -157,14 +144,33 @@ public class controlB {
 		Category_label.setText(text);
 	}
 	
-	
+	public void GameOver(){
+		// game is over disable the textfield and two buttons
+		// and output that user lost game in the textfield
+
+		guessBttn.setVisible(false);
+		guessFullWord.setVisible(false);
+		AnswerBox.setDisable(true); //can no longer use the text box
+		AnswerBox.setText("You lost");
+	}
 	
 	
 	// button event for guessing the entire word 
 	public void GuessFullWordEvent() {
 		
-		
-		
+		String finalGuess = AnswerBox.getText();
+		finalGuess = finalGuess.toLowerCase(); //so the answer is not case sensitive
+
+		if(finalGuess.equals(mysteryWord))
+		{
+			AnswerBox.setText("You win!");
+		}
+		else
+		{
+			AnswerBox.setText("You Lose.");
+		}
+
+		GameOver();
 		
 	}
 	
