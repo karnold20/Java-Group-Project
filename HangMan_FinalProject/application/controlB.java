@@ -175,7 +175,10 @@ public class controlB {
 	}
 	
 	
-	public void onButtonClicked(){}
+	/*public void onButtonClicked()
+	{
+		
+	}*/
 
 	
 	
@@ -184,10 +187,12 @@ public class controlB {
 	public void onButtonClicked(){
 		String newWord;
 		String guess = AnswerBox.getText(); //convert char obtained from TextField to String
+		String wordState = wordDashes.getText();
 		char myGuess = guess.charAt(0); //convert String to char
 		if(guessIsRight(mysteryWord,myGuess)){ //test to see if letter is in secretWord
-			newWord = updateWordState(); //change _ to letter if player made correct guess
+			newWord = updateWordState(mysteryWord,wordState,myGuess); //change _ to letter if player made correct guess
 			wordDashes.setText(newWord); //convert String to label
+			numGuesses--;
 		}
 		else{
 			//update hangman picture  
