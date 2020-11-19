@@ -86,6 +86,7 @@ public void Menu_AboutEvent() {
 					
 					Parent root2 = loader2.load();
 					Scene sceneB = new Scene(root2);
+					stage.setTitle("Hangman Game");
 					stage.setScene(sceneB);
 					controlB control = loader2.getController();
 					

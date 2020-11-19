@@ -326,6 +326,7 @@ public class controlB {
 	
 		Parent root2 = loader2.load();
 		Scene sceneA = new Scene(root2);
+		stage2.setTitle("Hangman Game");
 		stage2.setScene(sceneA);
 		controlA control = loader2.getController();
 		

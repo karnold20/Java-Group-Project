@@ -31,7 +31,7 @@ public class Main extends Application {
 	    primaryStage.setResizable(false);
 	    primaryStage.setWidth(APP_W);
 	    primaryStage.setHeight(APP_H);
-	    primaryStage.setTitle("Hangman_Game");
+	    primaryStage.setTitle("Hangman Game");
 	    primaryStage.setScene(sceneA);
 	    primaryStage.show();
 	   
