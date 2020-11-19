@@ -83,15 +83,9 @@ public void Menu_AboutEvent() {
 
 	
 	
-	
-	
-	
 }
 
 
-
-
-	
 	// button to select item from choice box 
 	public void ButtonEvent() {
 		
@@ -103,23 +97,24 @@ public void Menu_AboutEvent() {
 			// need to send the chosen category to Scene B
 				
 				try {
-				Stage stage = new Stage();
-				FXMLLoader loader2 = new FXMLLoader(getClass().getResource("SceneB.fxml"));
-				
-				
-				Parent root2 = loader2.load();
-				Scene sceneB = new Scene(root2);
-				stage.setScene(sceneB);
-				controlB control = loader2.getController();
-				
-				
-				// grabs the chosen category and sends it to the second scene 
-				control.SetCategory(choicebox.getValue().toString());
-				
-		
-				prevStage.close(); // close Scene A
-				
-				stage.show();
+					Stage stage = new Stage();
+					FXMLLoader loader2 = new FXMLLoader(getClass().getResource("SceneB.fxml"));
+					
+					
+					Parent root2 = loader2.load();
+					Scene sceneB = new Scene(root2);
+					stage.setScene(sceneB);
+					controlB control = loader2.getController();
+					
+					
+					// grabs the chosen category and sends it to the second scene 
+					control.SetCategory(choicebox.getValue().toString());
+					
+					stage.show();
+					
+					
+					Stage stage2 = (Stage) Select_Bttn.getScene().getWindow();
+				    stage2.close();
 				
 				
 				}catch (IOException io) {
