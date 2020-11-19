@@ -9,7 +9,7 @@ import javafx.scene.Scene;
 public class Main extends Application {
 	
 	//application width
-	private static final int APP_W = 900;
+	private static final int APP_W = 700;
 	
 	//application height
 	private static final int APP_H = 500; 
