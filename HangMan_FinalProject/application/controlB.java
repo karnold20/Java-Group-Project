@@ -7,12 +7,16 @@ import java.io.IOException;
 import java.util.Random;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
+import javafx.stage.Stage;
 
 public class controlB {
 
@@ -27,6 +31,9 @@ public class controlB {
 	private TextField AnswerBox; // where the user will input their text
 	
 	@FXML
+	private Label resultMessage; // where the lost, won messages go
+	
+	@FXML
 	private Button guessBttn; // button for guess letters of mystery word
 	
 	@FXML
@@ -39,6 +46,14 @@ public class controlB {
 	@FXML
 	private Label missedLetters; // all missed letters user guess will get added to this label
 	
+	@FXML
+	private Button playAgain; // playAgain button to reset game
+	
+	@FXML
+	private Label revealLabel;
+
+	@FXML
+	private ChoiceBox<String> choicebox;
 	
 	// these are the diffrent body parts of the hangman they will all initially be set to 
 	// invisible depending on the missed guesses of the user will set the visible property
@@ -66,20 +81,16 @@ public class controlB {
 	@FXML
 	private Line rightLegLine; // hangman right leg
 	
-	@FXML
-	private Button playAgain; // playAgain button to reset game
 	
-	@FXML
-	private Label revealLabel;
-
-
-
-	@FXML
-	private ChoiceBox<String> choicebox;
+	
+	
+	
+	
 	
 	public void initialize() throws IOException {
 		
-		makeInvisible(); // set all limbs of hangman to invisible when game first starts up
+		// set all limbs of hangman to invisible when game first starts up
+		makeInvisible(); 
 		
 		Platform.runLater(() -> { 
 		
@@ -113,45 +124,45 @@ public class controlB {
 				file_Reader = new FileReader (option);
 				} catch (FileNotFoundException e)
 				{
-			// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+			
+			
 			BufferedReader Buff_Reader = new BufferedReader (file_Reader);
 		
 		
-		//declare an array to hold the number of the words
-		//and initilize it with 30 words maximum
+			//declare an array to hold the number of the words
+			//and initilize it with 30 words maximum
 			String allWords[];
 			allWords = new String[30];
 		
 			String string;
 		
 		
-		//declare and initilize count to zero to hold
-		//the the numbers of lines in the file
+			//declare and initilize count to zero to hold
+			//the the numbers of lines in the file
 			int count = 0; 
 		
 		
-		//check that the file is not empty
+			//check that the file is not empty
 			try {
 				while ((string = Buff_Reader.readLine()) != null) {
 				allWords[count]=string;
 				count++;	
 				}
 				} catch (IOException e) {
-			// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 		
 		
-		//instance of random class
+			//instance of random class
 			Random rand = new Random(); 
 	
-	    //generate random values from 1 to number store in count
+			//generate random values from 1 to number store in count
 			int upperbound = count;    
 			int int_random = rand.nextInt(upperbound); 
 			
-		// set mysteryWord
+			// set mysteryWord
 			mysteryWord = allWords[int_random];
 			
 			printStars(); // print the dashes for mystery word 
@@ -160,11 +171,10 @@ public class controlB {
 	}
 	
 	
+	
 	// prints the dashes for mystery word 
 	public void printStars()
 	{
-		
-		
 		for( int i = 0; i < mysteryWord.length() ; i++)
 		{
 			if (mysteryWord.charAt(i) == ' ')
@@ -196,6 +206,8 @@ public class controlB {
 		
 		
 	}
+	
+	
 	
 	// checks the number of guess and makes hangman limbs
 	// visible depending on how many guesses remain
@@ -238,6 +250,8 @@ public class controlB {
 	}
 	
 	
+	
+	
 	// used to grab the category word from the first scenes controller
 	public void SetCategory(String text) {
 		
@@ -247,99 +261,125 @@ public class controlB {
 	
 	
 	
-	// function that informs user they won game
+	
+	// function that informs user they won the game
+	// by printing a win message in the screen
 	public void GameWin () {
 		
-		
+		wordDashes.setText(mysteryWord);
+		guessBttn.setVisible(false);
+		guessFullWord.setVisible(false);
+		AnswerBox.setDisable(true); //can no longer use the text box
+		resultMessage.setText("          Great Job!!\nYou Guessed the Word!!");
+		playAgain.setVisible(true); 
 		
 	}
 	
 	
 	
-	
+	// function that informs user they lost the game
+	// by printing a lost message in the screen
 	public void GameOver(){
-		// game is over disable the textfield and two buttons
-		// and output that user lost game in the textfield
 
 		guessBttn.setVisible(false);
 		guessFullWord.setVisible(false);
 		AnswerBox.setDisable(true); //can no longer use the text box
-		AnswerBox.setText("You lost!!");
+		resultMessage.setText("      Sorry!! You Lost.\nLet's Try to Play Again!");
 		playAgain.setVisible(true);
-		revealLabel.setText("You lost!! The mystery word was:");
+		revealLabel.setText("The mystery word was:");
 		revealLabel.setVisible(true);
 		wordDashes.setText(mysteryWord);
 	}
+	
 	
 	
 	// button event for guessing the entire word 
 	public void GuessFullWordEvent() {
 		
 		String finalGuess = AnswerBox.getText();
-		finalGuess = finalGuess.toLowerCase(); //so the answer is not case sensitive
+		finalGuess = finalGuess.toLowerCase(); // the answer is not case sensitive
 
 		if(finalGuess.equals(mysteryWord))
 		{
-			AnswerBox.setText("You win!!");
-			// need a game win function here
+			resultMessage.setText("You win!!");
+			GameWin ();
 		}
 		else
 		{
-			AnswerBox.setText("You Lose.");
+			resultMessage.setText("You Lose.");
 			GameOver();
 		}
-
-		
 	}
 	
 	
-	// logic for restart the game button event
+	
+	// function to let the user play the game again
+	// if they either win or lose
 	public void playAgainEvent() {
+
+	 	Stage stage = (Stage) playAgain.getScene().getWindow();
+	    stage.close();
+	
+	try {
+		Stage stage2 = new Stage();
+		FXMLLoader loader2 = new FXMLLoader(getClass().getResource("SceneA.fxml"));
+	
+		Parent root2 = loader2.load();
+		Scene sceneA = new Scene(root2);
+		stage2.setScene(sceneA);
+		controlA control = loader2.getController();
 		
-		
-		
+		 // close Scene B
+		stage2.show();
+
+		}catch (IOException io) {
+			io.printStackTrace();
+		}
 	}
 	
 	
-	// make guess button event 
+	
+	// create a guess button event 
 	public void onButtonClicked(){
 		
 		// protect against empty textbox and non char text
 		if (AnswerBox.getText() != "" && AnswerBox.getText().length() ==  1)
 		{
+			//convert char obtained from TextField to String
+			String guess = AnswerBox.getText(); 
 			
-			String guess = AnswerBox.getText(); //convert char obtained from TextField to String
-			//String wordState = wordDashes.getText();
-			char myGuess = guess.charAt(0); //convert String to char
-			if(guessIsRight(mysteryWord,myGuess)){ //test to see if letter is in secretWord
+			//convert String to char
+			char myGuess = guess.charAt(0);
 			
-				updateWordState(mysteryWord,myGuess); //change _ to letter if player made correct guess
+			//test to see if letter is in secretWord
+			if(guessIsRight(mysteryWord,myGuess)){ 
+			
+				//change _ to letter if player made correct guess
+				updateWordState(mysteryWord,myGuess); 
+
+				if (wordState.compareTo(mysteryWord)==0) {
+					GameWin();} 
 				
 			}
 			else{
 				//update hangman picture  
 				//make part of hangmanPicture visible if player made incorrect guess
 				
-				
-				addLettersGuessed(myGuess); // add missed letters to incorrect letters bank
+				// add missed letters to incorrect letters bank
+				addLettersGuessed(myGuess); 
 				
 				numGuesses--;
 				makeVisible(numGuesses);
-			
 			}
 			
 			AnswerBox.requestFocus(); // set focus on textbox 
-			
 		}
-		
 		else
 		{
+			// print a message if the user didn't write a letter
 			AnswerBox.setText("Your guess must be a single letter");
-			
 			AnswerBox.requestFocus(); 
-			
 		}
-		
 	}
 	
 	
@@ -360,7 +400,7 @@ public class controlB {
 	
 	
 	
-	//checks if letter is in secret word
+	// check if the letter is in secret word
 	public boolean guessIsRight(String secretWord, char guess){
 		boolean isCorrect = false;
 		for (int i=0; i<secretWord.length(); i++){
@@ -376,8 +416,8 @@ public class controlB {
 	//updates word state
 	public void updateWordState(String secretWord,char guess){
 		
-		   //convert Label to String
-		char [] myword = wordState.toCharArray();  //convert String to charArray
+		//convert String to charArray
+		char [] myword = wordState.toCharArray();  
 		
 		  for (int i=0; i<secretWord.length(); i++){
 			
@@ -385,13 +425,17 @@ public class controlB {
 			
 			if (secretLetter == guess){
 				
-				myword[i] = guess;      //update letters
+				//update letters
+				myword[i] = guess;      
 			}
 		}
 		 
 		
-		wordState = String.valueOf(myword); // set the wordState variable to the string value of myword char array
-		wordDashes.setText(wordState); // set wordDash text to value of wordState String
+		// set the wordState variable to the string value of myword char array
+		wordState = String.valueOf(myword); 
+		
+		// set wordDash text to value of wordState String
+		wordDashes.setText(wordState); 
 		
 	}
 

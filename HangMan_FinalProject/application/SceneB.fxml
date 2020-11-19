@@ -28,7 +28,7 @@
       <Button fx:id="guessBttn" layoutX="95.0" layoutY="381.0" mnemonicParsing="false" onAction="#onButtonClicked" text="Guess" />
       <Button fx:id="guessFullWord" layoutX="175.0" layoutY="381.0" mnemonicParsing="false" onAction="#GuessFullWordEvent" text="Guess Entire Word" />
       <Line endX="431.33331298828125" layoutX="262.0" layoutY="431.0" startX="-253.3333282470703" stroke="#1ca5b2" strokeWidth="5.0" />
-      <Label fx:id="missedLetters" layoutX="202.0" layoutY="115.0" prefHeight="27.0" prefWidth="187.0">
+      <Label fx:id="missedLetters" layoutX="198.0" layoutY="115.0" prefHeight="27.0" prefWidth="187.0">
          <font>
             <Font size="15.0" />
          </font></Label>
@@ -53,5 +53,10 @@
          </font>
       </Label>
       <Label layoutX="97.0" layoutY="302.0" text="* Guess a letter here :" />
+      <Label fx:id="resultMessage" layoutX="41.0" layoutY="161.0" prefHeight="133.0" prefWidth="350.0" textFill="#0f0e0e">
+         <font>
+            <Font name="System Bold Italic" size="27.0" />
+         </font>
+      </Label>
    </children>
 </Pane>
