@@ -342,15 +342,15 @@ public class controlB {
 	// create a guess button event 
 	public void onButtonClicked(){
 		
-		// protect against empty textbox and non char text
-		if (AnswerBox.getText() != "" && AnswerBox.getText().length() ==  1)
+		//Gets the guess from text box 
+		String guess = AnswerBox.getText();
+		//converts string to lower case
+		guess = guess.toLowerCase();
+		//protects against empty textbox, long strings, and non alphabet characters
+		if (guess != "" && guess.length() ==  1 && guess.charAt(0) >='a' && guess.charAt(0) <= 'z')
 		{
-			//convert char obtained from TextField to String
-			String guess = AnswerBox.getText(); 
-			
 			//convert String to char
 			char myGuess = guess.charAt(0);
-			
 			//test to see if letter is in secretWord
 			if(guessIsRight(mysteryWord,myGuess)){ 
 			
