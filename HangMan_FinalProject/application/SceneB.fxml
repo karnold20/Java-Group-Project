@@ -8,53 +8,50 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controlB">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controlB">
    <children>
-      <Label fx:id="Category_label" layoutX="220.0" layoutY="35.0" prefHeight="37.0" prefWidth="169.0">
+      <Label fx:id="Category_label" layoutX="150.0" layoutY="78.0" prefHeight="25.0" prefWidth="145.0">
          <font>
-            <Font size="18.0" />
+            <Font name="System Italic" size="15.0" />
          </font></Label>
-      <Line endX="-0.671234130859375" endY="149.641845703125" layoutX="449.0" layoutY="227.0" startX="-0.671234130859375" startY="-125.62429809570312" stroke="#654321" strokeWidth="5.0" />
-      <TextField fx:id="AnswerBox" layoutX="126.0" layoutY="322.0" prefHeight="27.0" prefWidth="232.0" text="Guess a letter here." />
-      <Line endX="100.0" layoutX="589.0" layoutY="101.0" startX="-140.17123413085938" startY="-0.12429046630859375" stroke="#654321" strokeWidth="4.0" />
-      <Line endX="8.7071533203125" endY="9.213531494140625" layoutX="681.0" layoutY="127.0" startX="8.7071533203125" startY="-26.831398010253906" />
-      <Line endX="100.0" layoutX="509.0" layoutY="377.0" startX="-100.0" stroke="#654321" strokeWidth="8.0" />
-      <Circle fx:id="headShape" fill="#f8fafc" layoutX="690.0" layoutY="159.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
-      <Line fx:id="spine" endX="1.0" endY="-38.00001525878906" layoutX="689.0" layoutY="222.0" startX="-0.7928466796875" startY="50.263153076171875" />
-      <Line fx:id="leftArmLine" endX="73.726806640625" endY="-11.969940185546875" layoutX="613.0" layoutY="217.0" startX="22.1334228515625" startY="19.6856689453125" />
-      <Line fx:id="rightArmLine" endX="-25.39447021484375" endY="14.309341430664062" layoutX="761.0" layoutY="221.0" startX="-70.29290771484375" startY="-15.969940185546875" />
-      <Line fx:id="leftLegLine" endX="98.5" endY="-38.02972412109375" layoutX="589.0" layoutY="311.0" startX="66.77838134765625" startY="11.0181884765625" />
-      <Line fx:id="rightLegLine" endX="-11.40509033203125" endY="8.512847900390625" layoutX="736.0" layoutY="308.0" startX="-47.5" startY="-35.02972412109375" />
-      <Button fx:id="guessBttn" layoutX="139.0" layoutY="381.0" mnemonicParsing="false" onAction="#onButtonClicked" text="Guess" />
-      <Button fx:id="guessFullWord" layoutX="220.0" layoutY="381.0" mnemonicParsing="false" onAction="#GuessFullWordEvent" text="Guess Entire Word" />
-      <Line endX="578.9806518554688" layoutX="286.0" layoutY="421.0" startX="-241.3124542236328" stroke="#1ca5b2" strokeWidth="5.0" />
-      <Label fx:id="missedLetters" layoutX="116.0" layoutY="173.0" prefHeight="111.0" prefWidth="252.0">
+      <Line endX="-0.671234130859375" endY="149.641845703125" layoutX="441.0" layoutY="255.0" startX="-0.671234130859375" startY="-125.62429809570312" stroke="#654321" strokeWidth="5.0" />
+      <TextField fx:id="AnswerBox" layoutX="95.0" layoutY="336.0" prefHeight="27.0" prefWidth="196.0" />
+      <Line endX="25.18603515625" endY="-0.1242828369140625" layoutX="581.0" layoutY="126.0" startX="-140.17123413085938" startY="-0.12429046630859375" stroke="#654321" strokeWidth="4.0" />
+      <Line endX="8.7071533203125" endY="9.213531494140625" layoutX="557.0" layoutY="152.0" startX="8.7071533203125" startY="-26.831398010253906" />
+      <Line endX="100.0" layoutX="533.0" layoutY="406.0" startX="-100.0" stroke="#654321" strokeWidth="8.0" />
+      <Circle fx:id="headShape" fill="#f8fafc" layoutX="565.0" layoutY="187.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+      <Line fx:id="spine" endX="1.0" endY="-38.00001525878906" layoutX="564.0" layoutY="251.0" startX="-0.7928466796875" startY="50.263153076171875" />
+      <Line fx:id="leftArmLine" endX="73.726806640625" endY="-11.969940185546875" layoutX="492.0" layoutY="224.0" startX="22.1334228515625" startY="19.6856689453125" />
+      <Line fx:id="rightArmLine" endX="-25.39447021484375" endY="14.309341430664062" layoutX="637.0" layoutY="229.0" startX="-70.29290771484375" startY="-15.969940185546875" />
+      <Line fx:id="leftLegLine" endX="95.7928466796875" endY="-35.73681640625" layoutX="467.0" layoutY="338.0" startX="66.77838134765625" startY="11.0181884765625" />
+      <Line fx:id="rightLegLine" endX="-11.40509033203125" endY="8.512847900390625" layoutX="611.0" layoutY="338.0" startX="-47.5" startY="-35.02972412109375" />
+      <Button fx:id="guessBttn" layoutX="95.0" layoutY="381.0" mnemonicParsing="false" onAction="#onButtonClicked" text="Guess" />
+      <Button fx:id="guessFullWord" layoutX="175.0" layoutY="381.0" mnemonicParsing="false" onAction="#GuessFullWordEvent" text="Guess Entire Word" />
+      <Line endX="431.33331298828125" layoutX="262.0" layoutY="431.0" startX="-253.3333282470703" stroke="#1ca5b2" strokeWidth="5.0" />
+      <Label fx:id="missedLetters" layoutX="202.0" layoutY="115.0" prefHeight="27.0" prefWidth="187.0">
          <font>
-            <Font size="24.0" />
+            <Font size="15.0" />
          </font></Label>
-      <Label fx:id="wordDashes" layoutX="495.0" layoutY="422.0" prefHeight="60.0" prefWidth="341.0" text="hello" textAlignment="CENTER">
+      <Label fx:id="wordDashes" layoutX="392.0" layoutY="434.0" prefHeight="60.0" prefWidth="350.0" textAlignment="CENTER">
          <font>
-            <Font size="48.0" />
+            <Font size="28.0" />
          </font></Label>
-      <Label layoutX="14.0" layoutY="42.0" text="The selected Category is:">
+      <Label layoutX="62.0" layoutY="77.0" text="Category :">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold Italic" size="16.0" />
          </font>
       </Label>
-      <Button fx:id="playAgain" layoutX="193.0" layoutY="381.0" mnemonicParsing="false" onAction="#playAgainEvent" text="Play Again" />
-      <Line endX="127.5" layoutX="211.0" layoutY="167.0" startX="-112.0" stroke="#6156ff" strokeWidth="3.0" />
-      <Line endX="-26.5" endY="77.5" layoutX="125.0" layoutY="212.0" startX="-26.5" startY="-44.5" stroke="#6156ff" strokeWidth="3.0" />
-      <Line endX="141.0" layoutX="199.0" layoutY="290.0" startX="-100.0" stroke="#6156ff" strokeWidth="3.0" />
-      <Line endX="-20.0" endY="86.5" layoutX="358.0" layoutY="204.0" startX="-20.0" startY="-38.0" stroke="#6156ff" strokeWidth="3.0" />
-      <Label fx:id="revealLabel" layoutX="68.0" layoutY="422.0" prefHeight="60.0" prefWidth="347.0" text="The mystery word was :">
+      <Button fx:id="playAgain" layoutX="139.0" layoutY="381.0" mnemonicParsing="false" onAction="#playAgainEvent" text="Play Again" />
+      <Label fx:id="revealLabel" layoutX="25.0" layoutY="434.0" prefHeight="60.0" prefWidth="300.0" text="The mystery word was :">
          <font>
-            <Font size="24.0" />
+            <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="126.0" layoutY="134.0" text="Incorrect Letters" underline="true">
+      <Label layoutX="62.0" layoutY="115.0" text="Incorrect Letters :">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold Italic" size="16.0" />
          </font>
       </Label>
+      <Label layoutX="97.0" layoutY="302.0" text="* Guess a letter here :" />
    </children>
 </Pane>
