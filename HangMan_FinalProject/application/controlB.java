@@ -1,7 +1,14 @@
 package application;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Random;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.shape.Circle;
@@ -13,7 +20,6 @@ public class controlB {
 	public int numGuesses = 6;
 	public String wordState = "";
 	public String lettersGuessed = "";
-	
 	@FXML
 	private Label Category_label; // used to grab text from the 
 	
@@ -66,50 +72,111 @@ public class controlB {
 	@FXML
 	private Label revealLabel;
 
+
+
+	@FXML
+	private ChoiceBox<String> choicebox;
 	
-	public void initialize() {
+	public void initialize() throws IOException {
 		
 		makeInvisible(); // set all limbs of hangman to invisible when game first starts up
 		
+		Platform.runLater(() -> { 
 		
-		
-		// grab the text from the Category_label  and use that to select matching txt file 
-		
-		// open and read file 
+			String filename = Category_label.getText();
 
-		// grab random word from text file
 		
+			String option = null;
+			switch (filename)
+				{
+					case "animals":
+						option = "animals.txt"; //animal text file
+						break;
+					case "country":
+						option = "country.txt"; //country text file
+						break;
+					case "fruit":
+						option = "fruit.txt"; //fruit text file
+						break;
+					case "movies":
+						option = "movies.txt"; //movies text file
+						break;
+					case "restaurants":
+						option = "restaurants.txt"; //restaurants text file
+						break;
+				}
+		
+		
+			//read the file contents
+			FileReader file_Reader = null;
+			try {
+				file_Reader = new FileReader (option);
+				} catch (FileNotFoundException e)
+				{
+			// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			BufferedReader Buff_Reader = new BufferedReader (file_Reader);
+		
+		
+		//declare an array to hold the number of the words
+		//and initilize it with 30 words maximum
+			String allWords[];
+			allWords = new String[30];
+		
+			String string;
+		
+		
+		//declare and initilize count to zero to hold
+		//the the numbers of lines in the file
+			int count = 0; 
+		
+		
+		//check that the file is not empty
+			try {
+				while ((string = Buff_Reader.readLine()) != null) {
+				allWords[count]=string;
+				count++;	
+				}
+				} catch (IOException e) {
+			// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		
+		
+		//instance of random class
+			Random rand = new Random(); 
+	
+	    //generate random values from 1 to number store in count
+			int upperbound = count;    
+			int int_random = rand.nextInt(upperbound); 
+			
 		// set mysteryWord
-		mysteryWord = "apple";
-		
-		printStars(); // print the dashes for mystery word 
-		
-		
+			mysteryWord = allWords[int_random];
+			
+			printStars(); // print the dashes for mystery word 
+			
+		});
 	}
 	
 	
-	 // prints the dashes for mystery word 
+	// prints the dashes for mystery word 
 	public void printStars()
 	{
 		
 		
 		for( int i = 0; i < mysteryWord.length() ; i++)
 		{
-			
 			if (mysteryWord.charAt(i) == ' ')
 			{
 				
-				wordState+=' ';
-					
+				wordState+=' ';	
 			}
 			else
 			{
-				
 				wordState+="*"; 
 			}
-			
 		}
-		
 		wordDashes.setText(wordState);
 	}
 	
@@ -197,9 +264,9 @@ public class controlB {
 		guessBttn.setVisible(false);
 		guessFullWord.setVisible(false);
 		AnswerBox.setDisable(true); //can no longer use the text box
-		AnswerBox.setText("You lost");
+		AnswerBox.setText("You lost!!");
 		playAgain.setVisible(true);
-		revealLabel.setText("You lost the mystery word was:");
+		revealLabel.setText("You lost!! The mystery word was:");
 		revealLabel.setVisible(true);
 		wordDashes.setText(mysteryWord);
 	}
@@ -213,7 +280,7 @@ public class controlB {
 
 		if(finalGuess.equals(mysteryWord))
 		{
-			AnswerBox.setText("You win!");
+			AnswerBox.setText("You win!!");
 			// need a game win function here
 		}
 		else

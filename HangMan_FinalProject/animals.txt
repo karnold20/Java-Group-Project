@@ -1,0 +1,25 @@
+dog
+cat
+sheep
+camel
+turtle
+donkey
+goat
+horse
+rabbit
+chicken
+alligator
+black panther
+buffalo
+cheetah
+clownfish
+elephant
+giraffe
+hedgehog
+kangaroo
+leopard
+mouse
+octopus
+parrot
+quail
+weasel
