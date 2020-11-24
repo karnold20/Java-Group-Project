@@ -1,3 +1,9 @@
+/*FINAL VERSION OF HANGMAN PROJECT
+ * Developers: Karmen Freeman, Rukia Ambasha, Lorenzo McDaniel, Munayfah Albaqami, and Katherine Arnold
+ * Instructor: Dr. Al-Tobasei
+ * Class: CSCI 3033
+ * Description: This is the controller for scene B of the game, the actual game window.
+ */
 package application;
 
 import java.io.BufferedReader;
@@ -18,12 +24,13 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.stage.Stage;
 
+//controller class for scene B
 public class controlB {
 
-	public String mysteryWord;
-	public int numGuesses = 6;
-	public String wordState = "";
-	public String lettersGuessed = "";
+	public String mysteryWord; //handles the secret word
+	public int numGuesses = 6; //number of guesses the user has left initially
+	public String wordState = ""; //initial word state
+	public String lettersGuessed = ""; //list of letters guessed by the user
 	@FXML
 	private Label Category_label; // used to grab text from the 
 	
@@ -82,22 +89,19 @@ public class controlB {
 	private Line rightLegLine; // hangman right leg
 	
 	
-	
-	
-	
-	
-	
 	public void initialize() throws IOException {
 		
 		// set all limbs of hangman to invisible when game first starts up
 		makeInvisible(); 
 		
+		//Sets the category to pull from correct text file
 		Platform.runLater(() -> { 
 		
-			String filename = Category_label.getText();
+			String filename = Category_label.getText(); //gets filename from scene A selection
 
 		
 			String option = null;
+			//sets the option to pull from
 			switch (filename)
 				{
 					case "animals":
@@ -130,19 +134,15 @@ public class controlB {
 			
 			BufferedReader Buff_Reader = new BufferedReader (file_Reader);
 		
-		
 			//declare an array to hold the number of the words
 			//and initilize it with 30 words maximum
 			String allWords[];
 			allWords = new String[30];
-		
 			String string;
 		
-		
-			//declare and initilize count to zero to hold
+			//declare and initialize count to zero to hold
 			//the the numbers of lines in the file
 			int count = 0; 
-		
 		
 			//check that the file is not empty
 			try {
@@ -153,8 +153,6 @@ public class controlB {
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
-		
-		
 			//instance of random class
 			Random rand = new Random(); 
 	
@@ -165,14 +163,12 @@ public class controlB {
 			// set mysteryWord
 			mysteryWord = allWords[int_random];
 			
-			printStars(); // print the dashes for mystery word 
+			printStars(); // print the asterisks for mystery word 
 			
 		});
 	}
 	
-	
-	
-	// prints the dashes for mystery word 
+	// prints the asterisks for mystery word 
 	public void printStars()
 	{
 		for( int i = 0; i < mysteryWord.length() ; i++)
@@ -190,8 +186,6 @@ public class controlB {
 		wordDashes.setText(wordState);
 	}
 	
-	
-	
 	// set all the limbs of hangman to invisible
 	public void makeInvisible() {
 		
@@ -207,51 +201,40 @@ public class controlB {
 		
 	}
 	
-	
-	
 	// checks the number of guess and makes hangman limbs
 	// visible depending on how many guesses remain
 	public void makeVisible(int guess) {
 		
 		// 
 		if (guess == 5)
-		{
-			
+		{	
 			headShape.setVisible(true);
 		}
 		else if (guess == 4)
-		{
-			
+		{	
 			spine.setVisible(true);
 		}
 		else if (guess == 3)
-		{
-			
+		{	
 			leftArmLine.setVisible(true);
 		}
 		else if (guess == 2)
-		{
-			
+		{	
 			rightArmLine.setVisible(true);
 		}
 		else if (guess == 1)
-		{
-			
+		{	
 			leftLegLine.setVisible(true);
 		}
 		else if (guess == 0)
-		{
-			
+		{		
 			rightLegLine.setVisible(true);
 			GameOver();
 		
 		}
 		
 	}
-	
-	
-	
-	
+
 	// used to grab the category word from the first scenes controller
 	public void SetCategory(String text) {
 		
@@ -299,16 +282,11 @@ public class controlB {
 		String finalGuess = AnswerBox.getText();
 		finalGuess = finalGuess.toLowerCase(); // the answer is not case sensitive
 
+		//if the final guess is the correct word or not
 		if(finalGuess.equals(mysteryWord))
-		{
-			resultMessage.setText("You win!!");
-			GameWin ();
-		}
+			GameWin();
 		else
-		{
-			resultMessage.setText("You Lose.");
 			GameOver();
-		}
 	}
 	
 	
@@ -319,7 +297,7 @@ public class controlB {
 
 	 	Stage stage = (Stage) playAgain.getScene().getWindow();
 	    stage.close();
-	
+	//loads scene A again
 	try {
 		Stage stage2 = new Stage();
 		FXMLLoader loader2 = new FXMLLoader(getClass().getResource("SceneA.fxml"));
@@ -337,8 +315,6 @@ public class controlB {
 			io.printStackTrace();
 		}
 	}
-	
-	
 	
 	// create a guess button event 
 	public void onButtonClicked(){
@@ -383,8 +359,6 @@ public class controlB {
 		}
 	}
 	
-	
-	
 	// add missed letters to incorrect letters bank
 	public void addLettersGuessed(char letter)
 	  {
@@ -398,9 +372,6 @@ public class controlB {
 		  
 	  }
 	
-	
-	
-	
 	// check if the letter is in secret word
 	public boolean guessIsRight(String secretWord, char guess){
 		boolean isCorrect = false;
@@ -412,7 +383,6 @@ public class controlB {
 		}
 		return isCorrect;
 	}
-	
 	
 	//updates word state
 	public void updateWordState(String secretWord,char guess){
@@ -430,8 +400,7 @@ public class controlB {
 				myword[i] = guess;      
 			}
 		}
-		 
-		
+		 	
 		// set the wordState variable to the string value of myword char array
 		wordState = String.valueOf(myword); 
 		
@@ -439,9 +408,5 @@ public class controlB {
 		wordDashes.setText(wordState); 
 		
 	}
-
-
-	
-	
 
 }

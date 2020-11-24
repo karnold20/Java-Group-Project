@@ -1,3 +1,9 @@
+/*FINAL VERSION OF HANGMAN PROJECT
+ * Developers: Karmen Freeman, Rukia Ambasha, Lorenzo McDaniel, Munayfah Albaqami, and Katherine Arnold
+ * Instructor: Dr. Al-Tobasei
+ * Class: CSCI 3033
+ * Description: This is the main startup class for the game. 
+ */
 package application;
 	
 import javafx.application.Application; 
@@ -17,7 +23,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 
-	   // load fxml file and display it in the stage
+	   // load FXML file and display it in the stage
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("SceneA.fxml"));
 		
 		Parent root = loader.load();
@@ -37,7 +43,7 @@ public class Main extends Application {
 	   
 	 }
 	
-
+	//launches the application
 	public static void main(String[] args) {
 		launch(args);
 	}

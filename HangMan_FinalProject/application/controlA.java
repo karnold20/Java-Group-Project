@@ -1,3 +1,9 @@
+/*FINAL VERSION OF HANGMAN PROJECT
+ * Developers: Karmen Freeman, Rukia Ambasha, Lorenzo McDaniel, Munayfah Albaqami, and Katherine Arnold
+ * Instructor: Dr. Al-Tobasei
+ * Class: CSCI 3033
+ * Description: This is the controller for scene A of the game, the selection menu.
+ */
 package application;
 
 import java.io.IOException;
@@ -22,10 +28,8 @@ public class controlA {
 	
 	Stage prevStage;
 	
-	
+	//Function that initializes the selection window
 	public void initialize() {
-		
-		
 		// sets the choicebox to have the category lists
 		choicebox.getItems().add("fruit");
 	    choicebox.getItems().add("movies");
@@ -34,15 +38,11 @@ public class controlA {
 	    choicebox.getItems().add("restaurants");
 	}
 	
-
-
 // set stage to SceneA
 public void setPrevStage(Stage stage) {
 		
 		this.prevStage = stage; 
 	}
-	
-	
 
 // about page button should open another window
 public void Menu_AboutEvent() {
@@ -58,17 +58,12 @@ public void Menu_AboutEvent() {
 	stage.setTitle("About Hangman");
 	stage.setScene(sceneC);
 	
-	stage.show();
-	
+	stage.show(); //opens the about window
 	
 	}catch (IOException io) {
 		io.printStackTrace();
-	}
-
-	
-	
+	}	
 }
-
 
 	// button to select item from choice box 
 	public void ButtonEvent() {
@@ -77,7 +72,7 @@ public void Menu_AboutEvent() {
 		if (choicebox.getValue() != "Select Category")
 		{
 			
-				// load the fxml file and display it in the stage
+				// load the FXML file and display it in the stage
 				// then send the chosen category to the sceneB
 				try {
 					Stage stage = new Stage();
@@ -96,9 +91,8 @@ public void Menu_AboutEvent() {
 					
 					stage.show();
 					
-					
 					Stage stage2 = (Stage) Select_Bttn.getScene().getWindow();
-				    stage2.close();
+				    stage2.close(); 
 				
 				
 				}catch (IOException io) {
@@ -106,9 +100,5 @@ public void Menu_AboutEvent() {
 				}
 
 		}
-	
-	
-	
-}
-	
+	}
 }
